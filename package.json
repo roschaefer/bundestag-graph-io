@@ -1,0 +1,18 @@
+{
+  "name": "bundestag-graph-io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Robert Schäfer <git@roschaefer.de>",
+  "license": "MIT",
+  "scripts": {
+    "open:bundestag-io": "graphqurl -i http://localhost:3100",
+    "open:dgraph": "graphqurl -i http://localhost:8080/graphql",
+    "migrate:schema": "curl -X POST localhost:8080/admin/schema --data-binary '@schema.graphql'",
+    "migrate:data": "node -r esm migrate.js"
+  },
+  "devDependencies": {
+    "clean-deep": "^3.4.0",
+    "esm": "^3.2.25",
+    "graphqurl": "^1.0.1"
+  }
+}
